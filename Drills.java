@@ -18,7 +18,7 @@ public class Drills{
 
         // A for-each loop traversing a String[array]
         String[] arr = {"bob", "joe"};
-        for(int j = 0; j < arr.length - 1; j++){
+        for(int j = 0; j <= arr.length - 1; j++){
             System.out.println(arr[j]);
         }
 
@@ -43,17 +43,14 @@ public class Drills{
         }
 
         if(bool1 || bool2 || bool3 || bool4){
-            System.out.println("The order of conditions above is most efficient
-                because bool1 is most likely to be true and thus it will not run the 
-                other less likely tests if bool1 is true; the opposite order would be 
-                least efficient");
+            System.out.println("The order of conditions above is most efficient because bool1 is most likely to be true and thus it will not run the other less likely tests if bool1 is true; the opposite order would be least efficient");
         }
 
         // Break a loop if a conditional passes
         String sentence = "Look behind you Mr. A";
         for(int o = 0; o < sentence.length() - 1; o++){
-            if(sentence.charAt(o) == 'i'){
-                System.out.println("Aha! This sentence contains the char i");
+            if(sentence.charAt(o) == 'o'){
+                System.out.println("Aha! This sentence contains the char o");
                 break;
             }
         }
@@ -71,24 +68,46 @@ public class Drills{
         }
 
         // Create a Scanner and take an input
+        Scanner input = new Scanner(System.in);
+        System.out.println("Give me a word");
+        String word = input.nextLine();
+        System.out.println("Your word was " + word);
 
         // Create a Scanner, take a number, and count down from that number to 0
+        Scanner newInput = new Scanner(System.in);
+        System.out.println("Give me number");
+        String countString = newInput.nextLine();
+        int countdown = Integer.parseInt(countString);
+        for(int p = countdown; p >= 0; p--){
+            System.out.println(p);
+        }
 
     }
-    public String firstThree(String str){
-        result = "";
+    public static String firstThree(String str){
+        String result = "";
         for(int l = 0; l < 3; l++){
             result += str.charAt(l);
         }
         return result;
     }
 
-    public void loopChars(String str){
+    public static void loopChars(String str){
         for(int n = 0; n < str.length(); n++){
             System.out.println(str.charAt(n));
         }
     }
 
     // Create a method that returns a comparison (include a JavaDoc comment)
-
+    /**
+     * @param ch1 the char that the function checks is before the other char
+     * @param ch2 the char that is being compared to ch1
+     * @return whether ch1 comes before ch2 in the alphabet
+     */
+    public static boolean isChar1FirstInAlphabet(char ch1, char ch2){
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        if(alphabet.indexOf(ch1) < alphabet.indexOf(ch2)){
+            return true;
+        }
+        return false;
+    }
 }
